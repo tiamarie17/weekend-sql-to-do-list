@@ -12,16 +12,17 @@ $( document ).ready( function(){
   function addClickListeners(){
     console.log('in addClickListeners');
 
-        $('#addBtn').on('click', handleAdd);
+        $('#addBtn').on('click', newTask);
     
   }
 
   //Creating a function to load the tasks on the page
   function getTasks() {
+        console.log('in get tasks');
 
         $.ajax({
         type: 'GET',
-        url: '/tasks'
+        url: '/tasks',
 
         }).then(function(response) {
         console.log(response);
@@ -33,20 +34,15 @@ $( document ).ready( function(){
         });
   }
 
-  function handleAdd(){
-        console.log('add button clicked');
+
+  function newTask(){
+        console.log('in newTask');
+
         //Creating an object to send to the server using input from the DOM
         let task = {
             task: $('#taskIn').val()
         };
         console.log(task);
-
-        //call newTask function and pass that object into it
-        newTask(task);
-  }
-
-  function newTask(task){
-        console.log('in newTask');
 
         $.ajax({
             type: 'POST',

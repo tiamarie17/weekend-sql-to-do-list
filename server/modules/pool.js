@@ -3,8 +3,8 @@
 const pg = require('pg');
 
 const config = {
-  database: 'weeeknd-to-do-app', 
-  host: 'local', 
+  database: 'weekend-to-do-app', 
+  host: 'localhost', 
   port: 5432
 };
 

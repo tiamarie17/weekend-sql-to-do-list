@@ -1,4 +1,4 @@
-console.log('in task.router.js');
+console.log('in taskRouter.js');
 
 //requiring express and declaring router constant
 const express = require('express');
@@ -7,16 +7,59 @@ const router = express.Router();
 //import pool from pool.js file
 const pool = require('../modules/pool.js');
 
-//declaring global array with list of tasks
-let tasks = [];
-
 //endpoint for GET request
 router.get('/', (req, res) => {
-    res.send(tasks);
+    console.log('IN GET tasks');
+    let sqlText = (`
+    SELECT * FROM "tasks"
+    ORDER BY "id" ASC;
+    `);
+
+    pool.query(sqlText)
+
+    .then((response) => {
+        res.send(response.rows);
+        console.log(response.rows);
+    })
+    .catch((err) => {
+        console.log('GET  failed', err);
+        res.sendStatus(500);
+
+});
 
 });
 
 //endpoint for POST request
+
+router.post('/', (req, res)=>{
+    console.log('req.body', req.body);
+
+    const sqlText = 
+    `
+        INSERT INTO "tasks"
+            ("task")
+        VALUES
+            ($1); --placeholders for sqlParams
+    `;
+
+    const sqlParams = [
+        req.body.task
+    
+    ];
+    console.log(sqlParams);
+
+        pool.query(sqlText, sqlParams)
+            .then((dbRes)=>{
+                console.log('in POST router');
+                res.sendStatus(201);
+            })
+            .catch((err)=>{
+                console.log('POST router failed', err);
+                res.sendStatus(500);
+            });
+
+});
+
 
 
 //endpoint for PUT request
