@@ -1,5 +1,6 @@
 // Require express
 const express = require('express');
+const bodyParser = require('body-parser');
 
 // Create an instance of express by calling the function returned above - gives us an object
 const app = express();
