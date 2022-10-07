@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 5000;
 
-//TODO- import router here
+//importing router from tasks.router.js
+const router = require('./routes/tasks.router');
 
 // express static file serving - public is the folder name
 app.use(express.static('server/public'));

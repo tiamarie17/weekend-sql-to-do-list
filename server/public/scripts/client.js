@@ -64,8 +64,8 @@ $( document ).ready( function(){
   }
 
   function renderTasks(){
-    console.log('in render');
-    
+        console.log('in render');
+
 
 
   }
