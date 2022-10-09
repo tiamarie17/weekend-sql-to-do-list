@@ -136,7 +136,8 @@ $( document ).ready( function(){
                     ${task.date}
                 
                 </td>
-                <td><button class="deleteBtn" data-id="${task.id}">Delete</button></td>
+                <td><button class="deleteBtn" data-id="${task.id}">Delete</button>
+                </td>
                 </tr>
                 `)
             

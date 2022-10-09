@@ -1,9 +1,8 @@
 body {
     background-color: white;
-    margin: 15px 30px;
+    margin: 30px 30px;
     font-family: 'Grotesco', Arial, Helvetica, sans-serif;
     font-size: 15px;
-    width: 50 rem;
 }
 
 input {
@@ -12,7 +11,7 @@ input {
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-    border-radius: 4px;
+    border-radius: 0.5rem;
 }
 
 
@@ -24,16 +23,20 @@ input {
     margin: 0px 0px;
     padding: 5px;
     justify-content: center;
-    border-radius: 4px;
+    border-radius: 0.5rem;
+}
+
+.completeBtn, .deleteBtn {
+    border-radius: 0.5rem
 }
 
 
 
-#taskTable {
+.table {
     border-collapse: collapse;
-    margin: auto;
+    margin: 1rem 1rem 1rem 1rem;
     color: black;
-    border-radius: 4px;
+    border-radius: 0.5rem;
 }
 
 tr {
@@ -41,23 +44,24 @@ tr {
 }
 
 tr, td {
-    width: auto;
-    height: 28px;
-    padding: 12px;
+    height: 25px;
+    padding: 10px;
 }
 
+header {
+    margin-top: 1rem;
+}
 
 h1 {
     text-align: center;
     font-family: Grotesco, Arial, Helvetica, sans-serif;
     color: black;
-    margin-top: 15px;
 }
 
 
 tr:nth-child(1) {
     font-weight: bolder;
-    background-color: lavender;
+    background-color: lightblue;
 }
 
 
@@ -68,6 +72,7 @@ tr:nth-child(1) {
 .rowBackgroundGreen {
     background-color: #8FBC8F;
 }
+
 
 
 
