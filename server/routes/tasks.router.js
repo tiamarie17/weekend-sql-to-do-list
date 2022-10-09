@@ -1,5 +1,6 @@
 console.log('in taskRouter.js');
 
+const { response } = require('express');
 //requiring express and declaring router constant
 const express = require('express');
 const router = express.Router();
@@ -69,11 +70,15 @@ router.put('/:id', (req, res)=>{
     let taskId=req.params.id;
     console.log('in /tasks put with id of:', taskId);
 
-    const sqlText=`
+    //Updating task status to create a toggle for boolean value
+    //Getting the date created for the button that was clicked
+    //Getting status of the task
+    //Saving each SQL command into a different variable and passing them into pool.query
+
+    sqlText=`
     UPDATE "tasks"
     SET "status" = NOT "status"
-    WHERE "id" = $1;
-    `;
+    WHERE "id" = $1;`;
 
     const sqlParams=[taskId];
     console.log(sqlParams);
@@ -86,7 +91,8 @@ router.put('/:id', (req, res)=>{
       console.log('in /tasks put error', err);
       res.sendStatus(500);
     });
-})
+});
+
 
 //endpoint for DELETE request
 

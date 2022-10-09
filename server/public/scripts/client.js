@@ -64,6 +64,21 @@ $( document ).ready( function(){
 
   function deleteTask(){
         console.log('in DeleteTask');
+
+        let taskId = $(this).data('id');
+
+        $.ajax({
+            method: 'DELETE',
+            url: `/tasks/${taskId}`
+        })
+        .then(function(response) {
+            console.log('in .then DELETE', response);
+            getTasks();
+        })
+        .catch(function(err){
+            console.log('error on DELETE', err);
+            
+        });
   }
 
 
@@ -81,7 +96,6 @@ $( document ).ready( function(){
         })
         .then((response=>{
             console.log('The task was changed to complete');
-             //Change CSS class in render?
             getTasks();
         }))
         .catch((err=>{
