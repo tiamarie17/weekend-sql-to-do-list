@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: white;
     margin: 15px 30px;
     font-family: 'Grotesco', Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -33,7 +33,6 @@ input {
 #taskTable {
     border-collapse: collapse;
     margin: auto;
-    /* background-color: lavender; */
     color: black;
     border-radius: 4px;
 }
@@ -52,18 +51,13 @@ tr, td {
 h1 {
     text-align: center;
     font-family: Grotesco, Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
 }
 
 tr:nth-child(1) {
     font-weight: bolder;
+    background-color: lavender;
 }
-
-
-
-
-
-
 
 
 .rowBackground {
@@ -71,7 +65,7 @@ tr:nth-child(1) {
 }
 
 .rowBackgroundGreen {
-    background-color: lightgreen;
+    background-color: #8FBC8F;
 }
 
 

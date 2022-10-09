@@ -68,39 +68,25 @@ router.post('/', (req, res)=>{
 router.put('/:id', (req, res)=>{
     
     let taskId=req.params.id;
-    console.log('in /tasks put with id of:', taskId);
+    console.log('in PUT tasks put with id of:', taskId);
 
     //Updating task status to create a toggle for boolean value
 
-    sqlText=`
+    let sqlText=`
     UPDATE "tasks"
     SET "status" = NOT "status"
     WHERE "id" = $1;`;
-
- 
 
     const sqlParams=[taskId];
     console.log(sqlParams);
 
     pool.query(sqlText, sqlParams)
     .then((dbRes)=>{
-      //res.sendStatus(201);
-    })
-    .catch(err=>{
-      console.log('in /tasks put error', err);
-      res.sendStatus(500);
-    });
+
+        res.send(dbRes.rows);
+        console.log(dbRes.rows);
 
 
-    sqlText = `SELECT "status" FROM "tasks"
-	WHERE "id" = $1;`;
-
-    console.log(sqlParams);
-
-    pool.query(sqlText, sqlParams)
-    .then((dbRes)=>{
-      console.log(dbRes.rows[0]) 
-      res.send(dbRes.rows[0])
     })
     .catch(err=>{
       console.log('in /tasks put error', err);
@@ -130,7 +116,7 @@ router.delete('/:id', (req, res)=>{
       res.sendStatus(201);
     })
     .catch(err=>{
-      console.log('in /koalas put error', err);
+      console.log('in /tasks put error', err);
       res.sendStatus(500);
     });
 });

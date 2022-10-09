@@ -132,7 +132,10 @@ $( document ).ready( function(){
             `
                 <tr class="rowBackgroundGreen">
                 <td>${task.task}</td>
-                <td><button class="completeBtn" data-id="${task.id}">Complete</button></td>
+                <td><button class="completeBtn" data-id="${task.id}">Complete</button><br>
+                    ${task.date}
+                
+                </td>
                 <td><button class="deleteBtn" data-id="${task.id}">Delete</button></td>
                 </tr>
                 `)
@@ -148,39 +151,4 @@ $( document ).ready( function(){
                     `)
         }
     }
-    //     if (task.status){ 
-    //         console.log("In true")
-    //         console.log(task.status)
-    //         $('#taskTable').append(
-    //         `
-    //             <tr id="${task.id} class= "rowBackgroundGreen">
-    //             <td>${task.task}</td>
-    //             <td><button class="completeBtn" data-id="${task.id}">Complete</button></td>
-    //             <td><button class="deleteBtn" data-id="${task.id}">Delete</button></td>
-    //             </tr>
-         
-    //     `)
-    //     }else{
-    //         console.log("In False")
-    //         console.log(task.status)
-    //     $('#taskTable').append(
-   
-    //         `
-    //             <tr id="${task.id}" class = "rowBackgroundGreen">
-    //             <td>${task.task}</td>
-    //             <td><button class="completeBtn" data-id="${task.id}">Complete</button></td>
-    //             <td><button class="deleteBtn" data-id="${task.id}">Delete</button></td>
-    //             </tr>
-         
-    //     `)
-    // }
-
-  
-            /*if(response.status == true){
-            
-        $(this).parent().parent().attr("class","rowBackgroundGreen");
-        }
-        else {
-        $(this).parent().parent().attr("class","rowBackground");
-        }*/
   }
