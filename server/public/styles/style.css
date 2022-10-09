@@ -33,7 +33,7 @@ input {
 #taskTable {
     border-collapse: collapse;
     margin: auto;
-    background-color: lavender;
+    /* background-color: lavender; */
     color: black;
     border-radius: 4px;
 }
