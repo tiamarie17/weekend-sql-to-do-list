@@ -77,17 +77,36 @@ router.put('/:id', (req, res)=>{
     SET "status" = NOT "status"
     WHERE "id" = $1;`;
 
+ 
+
     const sqlParams=[taskId];
     console.log(sqlParams);
 
     pool.query(sqlText, sqlParams)
     .then((dbRes)=>{
-      res.sendStatus(201);
+      //res.sendStatus(201);
     })
     .catch(err=>{
       console.log('in /tasks put error', err);
       res.sendStatus(500);
     });
+
+
+    sqlText = `SELECT "status" FROM "tasks"
+	WHERE "id" = $1;`;
+
+    console.log(sqlParams);
+
+    pool.query(sqlText, sqlParams)
+    .then((dbRes)=>{
+      console.log(dbRes.rows[0]) 
+      res.send(dbRes.rows[0])
+    })
+    .catch(err=>{
+      console.log('in /tasks put error', err);
+      res.sendStatus(500);
+    });
+
 });
 
 

@@ -39,7 +39,7 @@ input {
 }
 
 tr {
-    border-bottom: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd;
 }
 
 tr, td {
@@ -66,11 +66,11 @@ tr:nth-child(1) {
 
 
 
-.completeBtnFalse:nth-child() {
-    background-color: white;
+.rowBackground {
+    background-color: lavender;
 }
 
-.completeBtnTrue:nth-child() {
+.rowBackgroundGreen {
     background-color: lightgreen;
 }
 

@@ -6,7 +6,7 @@ $( document ).ready( function(){
         addClickListeners();
 
         // load existing tasks on page load
-        getTasks();
+       getTasks();
   });
 
   function addClickListeners(){
@@ -22,19 +22,19 @@ $( document ).ready( function(){
   //Creating a function to load the tasks on the page
   function getTasks() {
         console.log('in get tasks');
-
         $.ajax({
         type: 'GET',
         url: '/tasks',
 
         }).then(function(response) {
         console.log(response);
-
-        renderTasks(response);
+        renderTasks(response)
+       
 
         }).catch(function(error){
         console.log('error in GET', error);
         });
+
   }
 
 
@@ -56,6 +56,7 @@ $( document ).ready( function(){
             $('#taskIn').val('');
             //calling getTasks function to load updated tasks to the DOM
             getTasks();
+            
         })
             .catch((err)=>{
                 console.log('in POST error', err);
@@ -74,6 +75,7 @@ $( document ).ready( function(){
         .then(function(response) {
             console.log('in .then DELETE', response);
             getTasks();
+ 
         })
         .catch(function(err){
             console.log('error on DELETE', err);
@@ -84,8 +86,7 @@ $( document ).ready( function(){
 
 
   function markComplete(){
-        console.log('in markComplete');
-
+       
         //Getting data id of the button clicked
             taskId = $(this).data('id');
             console.log('task id is', taskId);
@@ -95,13 +96,31 @@ $( document ).ready( function(){
             url: `/tasks/${taskId}`,
         })
         .then((response=>{
-            console.log('The task was changed to complete');
-            getTasks();
+            console.log('in markComplete');
+            console.log(response)
+            console.log(response.status)
+            if(response.status){
+                
+                $(this).parent().parent().attr("class","rowBackgroundGreen");
+            }
+            else {
+                $(this).parent().parent().attr("class","rowBackground");
+            }
+         
+            
         }))
         .catch((err=>{
             console.log('in tasks PUT error', err);
         }));
+
+
   }
+
+//   function setButton(){
+//     console.log('changeing color to green');
+//     $("#" + taskId).addClass('rowBackgroundGreen')
+//     console.log('Done changeing color to green');
+//   }
 
 
   function renderTasks(tasks){
@@ -112,18 +131,21 @@ $( document ).ready( function(){
         $('#taskTable').append(`
             <tr>
                 <td>Task</td>
-                <td>Status</td>
+                <td>Status</td>ç
                 <td></td>
             </tr>
 
         `);
+
     for(let task of tasks){
-        $('#taskTable').append(`
-            <tr>
-            <td>${task.task}</td>
-            <td><div class = "backgroundColor"<button class="completeBtn" data-id="${task.id}">Complete</button></div></td>
-            <td><button class="deleteBtn" data-id="${task.id}">Delete</button></td>
-            </tr>
+        $('#taskTable').append(
+            `
+                <tr id="${task.id}"  >
+                <td>${task.task}</td>
+                <td><button class="completeBtn" data-id="${task.id}">Complete</button></td>
+                <td><button class="deleteBtn" data-id="${task.id}">Delete</button></td>
+                </tr>
+         
         `)
   }
   }
