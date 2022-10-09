@@ -113,6 +113,7 @@ $( document ).ready( function(){
             <tr>
                 <td>Task</td>
                 <td>Status</td>
+                <td></td>
             </tr>
 
         `);
@@ -120,7 +121,7 @@ $( document ).ready( function(){
         $('#taskTable').append(`
             <tr>
             <td>${task.task}</td>
-            <td><button class="completeBtn" data-id="${task.id}">Complete</button></td>
+            <td><div class = "backgroundColor"<button class="completeBtn" data-id="${task.id}">Complete</button></div></td>
             <td><button class="deleteBtn" data-id="${task.id}">Delete</button></td>
             </tr>
         `)
