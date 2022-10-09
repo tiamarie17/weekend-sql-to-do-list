@@ -18,14 +18,21 @@
 </header>
 
 <body>
-    <input id= "taskIn" type = "text" placeholder = "Type a task here!"/>
-    <button id = "addBtn">Add</button><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-">
+                <label for="exampleFormControlInput1" class="form-label">To Do:</label>   
+                <input class = "form-control form-control-lg" id= "taskIn" type = "text" placeholder = "Type a task here!">
+            </div>
+            <div class="col">
+                <button id = "addBtn" type = "button">Add</button>
+            </div>
+            
+          </div>
+    </div>
     
 
     <table id = "taskTable">
-        <tr>
-        <th></th>
-        </tr>
 
     </table>
     <!-- including Bootstrap JS -->

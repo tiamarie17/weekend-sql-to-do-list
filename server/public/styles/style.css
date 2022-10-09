@@ -7,24 +7,23 @@ body {
 }
 
 input {
-    margin: auto;
-    height: 28px;
-    width: 300px;
-    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 4px;
 }
+
 
 #addBtn {
     height: 33px;
     width: 100px;
     font-family: Grotesco, Arial, Helvetica, sans-serif;
     font-size: 15px;
-    margin: auto;
+    margin: 0px 0px;
     padding: 5px;
     justify-content: center;
-    display: flex;
     border-radius: 4px;
 }
 
@@ -52,7 +51,9 @@ h1 {
     text-align: center;
     font-family: Grotesco, Arial, Helvetica, sans-serif;
     color: black;
+    margin-top: 15px;
 }
+
 
 tr:nth-child(1) {
     font-weight: bolder;
