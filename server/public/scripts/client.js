@@ -70,6 +70,23 @@ $( document ).ready( function(){
 
   function markComplete(){
         console.log('in markComplete');
+
+        //Getting data id of the button clicked
+            taskId = $(this).data('id');
+            console.log('task id is', taskId);
+
+        $.ajax({
+            method: 'PUT',
+            url: `/tasks/${taskId}`,
+        })
+        .then((response=>{
+            console.log('The task was changed to complete');
+             //Change CSS class in render?
+            getTasks();
+        }))
+        .catch((err=>{
+            console.log('in tasks PUT error', err);
+        }));
   }
 
 
