@@ -12,8 +12,8 @@ $( document ).ready( function(){
   function addClickListeners(){
     console.log('in addClickListeners');
         $('#addBtn').on('click', newTask);
-        $('#taskTable').on('click', '#completeBtn', markComplete);
-        $('#taskTable').on('click', '#deleteBtn', deleteTask);
+        $('#taskTable').on('click', '.completeBtn', markComplete);
+        $('#taskTable').on('click', '.deleteBtn', deleteTask);
         
 
 

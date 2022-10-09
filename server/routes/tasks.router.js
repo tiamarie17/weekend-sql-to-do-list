@@ -64,6 +64,30 @@ router.post('/', (req, res)=>{
 
 //endpoint for PUT request
 
+router.put('/:id', (req, res)=>{
+    
+    let taskId=req.params.id;
+    console.log('in /tasks put with id of:', taskId);
+
+    const sqlText=`
+    UPDATE "tasks"
+    SET "status" = NOT "status"
+    WHERE "id" = $1;
+    `;
+
+    const sqlParams=[taskId];
+    console.log(sqlParams);
+
+    pool.query(sqlText, sqlParams)
+    .then((dbRes)=>{
+      res.sendStatus(201);
+    })
+    .catch(err=>{
+      console.log('in /tasks put error', err);
+      res.sendStatus(500);
+    });
+})
+
 //endpoint for DELETE request
 
 
