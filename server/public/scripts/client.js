@@ -127,13 +127,23 @@ $( document ).ready( function(){
 
     for(let task of tasks){
 
+        //Changing the date format to take away the time
+        //Making an object from the task.date string
+
+
+        let dateObject = new Date(task.date);
+        //Getting a string from the object and formatting it
+        let dateFormat = dateObject.getMonth()+1 +"-"+dateObject.getDate() + "-" + dateObject.getFullYear();
+        console.log(dateFormat);
+    
+
         if(task.status){
             $('#taskTable').append(
             `
                 <tr class="rowBackgroundGreen">
                 <td>${task.task}</td>
                 <td><button class="completeBtn" data-id="${task.id}">Complete</button><br>
-                    ${task.date}
+                    ${dateFormat}
                 
                 </td>
                 <td><button class="deleteBtn" data-id="${task.id}">Delete</button>
